@@ -1,0 +1,44 @@
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.9rem;
+  color: #fff;
+}
+
+.logo__mark {
+  flex-shrink: 0;
+  color: var(--color-gold);
+  transition: transform var(--transition);
+}
+
+.logo:hover .logo__mark {
+  transform: translateY(-2px);
+}
+
+.logo__text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+  padding-left: 0.9rem;
+  border-left: 1px solid rgba(176, 141, 87, 0.45);
+}
+
+.logo__name {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+.logo__name em {
+  color: inherit;
+}
+
+.logo__tagline {
+  margin-top: 0.4rem;
+  font-size: 0.55rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--color-gold-light);
+}

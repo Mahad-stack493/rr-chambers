@@ -1,0 +1,141 @@
+.header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 100;
+  height: var(--header-height);
+  border-bottom: 1px solid transparent;
+  transition: background var(--transition), border-color var(--transition), height var(--transition);
+}
+
+.header--solid {
+  height: 72px;
+  background: rgba(13, 22, 36, 0.88);
+  backdrop-filter: blur(14px);
+  border-bottom-color: var(--color-line-light);
+}
+
+.header__inner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__logo {
+  position: relative;
+  z-index: 2;
+  display: flex;
+}
+
+@media (max-width: 480px) {
+  .header__logo .logo__tagline {
+    display: none;
+  }
+}
+
+.header__nav {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.header__link {
+  position: relative;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #c7ced8;
+  transition: color var(--transition);
+}
+
+.header__link::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -10px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--color-gold);
+  transform: translateX(-50%) scale(0);
+  transition: transform var(--transition);
+}
+
+.header__link:hover {
+  color: #fff;
+}
+
+.header__link--active {
+  color: var(--color-gold-light);
+}
+
+.header__link--active::after,
+.header__link:hover::after {
+  transform: translateX(-50%) scale(1);
+}
+
+.header__nav .btn {
+  padding: 0.8rem 1.5rem;
+}
+
+.header__toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+@media (max-width: 900px) {
+  /* backdrop-filter would make the fixed full-screen nav position relative to the header */
+  .header--solid {
+    backdrop-filter: none;
+    background: var(--color-ink);
+  }
+
+  .header__toggle {
+    display: block;
+    position: relative;
+    z-index: 2;
+  }
+
+  .header__nav {
+    position: fixed;
+    inset: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 1.25rem;
+    padding: 2rem clamp(1.25rem, 6vw, 3rem);
+    background: var(--color-ink);
+    clip-path: circle(0 at calc(100% - 2.5rem) 2.5rem);
+    transition: clip-path 0.7s var(--ease);
+  }
+
+  .header__nav--open {
+    clip-path: circle(150% at calc(100% - 2.5rem) 2.5rem);
+  }
+
+  .header__link {
+    font-family: var(--font-heading);
+    font-size: 2.8rem;
+    font-weight: 400;
+    letter-spacing: 0;
+    text-transform: none;
+    color: #fff;
+  }
+
+  .header__link--active {
+    font-style: italic;
+    color: var(--color-gold-light);
+  }
+
+  .header__link::after {
+    display: none;
+  }
+
+  .header__nav .btn {
+    margin-top: 1.5rem;
+  }
+}

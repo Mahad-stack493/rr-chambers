@@ -1,0 +1,86 @@
+.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1.05rem 2rem;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  cursor: pointer;
+  overflow: hidden;
+  isolation: isolate;
+  transition: color var(--transition), border-color var(--transition), background var(--transition);
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s var(--ease);
+}
+
+.btn:hover::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.btn--primary {
+  background: var(--color-gold);
+  color: var(--color-ink);
+}
+
+.btn--primary::before {
+  background: #fff;
+}
+
+.btn--outline {
+  background: transparent;
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+.btn--outline::before {
+  background: #fff;
+}
+
+.btn--outline:hover {
+  color: var(--color-ink);
+  border-color: #fff;
+}
+
+.btn--dark {
+  background: var(--color-ink);
+  color: #fff;
+}
+
+.btn--dark::before {
+  background: var(--color-gold);
+}
+
+.btn--dark:hover {
+  color: var(--color-ink);
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--color-ink);
+  border-color: var(--color-line);
+}
+
+.btn--ghost::before {
+  background: var(--color-ink);
+}
+
+.btn--ghost:hover {
+  color: #fff;
+  border-color: var(--color-ink);
+}
